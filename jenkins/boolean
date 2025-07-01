@@ -13,7 +13,7 @@ pipeline{
                         currentBuild.result = "SUCESS"
                     }
                     else {
-                        echo "booleanParam is set to ${params.myBoolean}"
+                        echo "booleanParam is set to : TRUE"
                     }
                 }           
             }
