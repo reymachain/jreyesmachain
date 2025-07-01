@@ -8,7 +8,14 @@ pipeline{
     stages {
         state("Demo"){
             steps{
-                echo "boolean is set to ${params.myBoolean}"
+                script {
+                    if(params.myBoolean == false){
+                        currentBuild.result = "SUCESS"
+                    }
+                    else {
+                        echo "booleanParam is set to ${params.myBoolean}"
+                    }
+                }           
             }
         }
     }
