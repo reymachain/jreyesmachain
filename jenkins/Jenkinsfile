@@ -1,17 +1,17 @@
 pipeline{
     agent any
     stages {
-        stage("Clean Up"){
+        stage('Clean Up'){
             steps{
                 deleteDir()
             }
         }
-        stage("Clone Repo"){
+        stage('Clone Repo'){
             steps{
                 sh "git clone https://github.com/reymachain/jreyesmachain.git"
             }
         }
-        stage("Build"){
+        stage('Build'){
             steps{
                 dir("jreyesmachain"){
                     sh "mvn clean install"
@@ -19,7 +19,7 @@ pipeline{
             }
             
         }
-        stage("Test"){
+        stage('Test'){
             steps{
                 dir("jreyesmachain"){
                     sh "mvn test"
@@ -27,9 +27,10 @@ pipeline{
             }
         }
         stage('Complete'){
-            steps {
-                echo 'Job Complete'
+            steps{
+                echo "Job Completed"
+            }
+        }
     }
 
-        }
 }
