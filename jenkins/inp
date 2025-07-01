@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+
+    parameters{
+        string(defaultValue:"TEST CODE", description:"Which environment to deploy unb ?",name:"deployEnv")
+
+    }
+    stages {
+        state("Demo"){
+            steps{
+                echo "boolean is set to ${params.deployEnv}"
+            }
+        }
+    }
+}
